@@ -1,19 +1,30 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import SignIn from './pages/SingIn'
-import Header from './components/Header'
- 
-ReactDOM.render(
+
+
+import React from 'react';
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+import reportWebVitals from './reportWebVitals';
+import "./../designs/css";
+import { Provider } from 'react-redux'
+import { configureStore } from '@reduxjs/toolkit'
+import rootReducer from "./reducers"
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+const store = configureStore({
+    reducer: rootReducer,
+    devTools: true,
+});
+
+root.render(
     <React.StrictMode>
-        <Router>
-            <Header/>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/signIn" element={<SignIn />} />
-            </Routes>
-        </Router>
+        <BrowserRouter>
+            <Provider store={store}>
+                <App/>
+            </Provider>
+        </BrowserRouter>
     </React.StrictMode>,
-document.getElementById('root')
-)
+);
+  
+reportWebVitals()

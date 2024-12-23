@@ -1,6 +1,4 @@
-c
-
-
+import "./../../../designs/css/main.css"
 
 function User() {
     return (

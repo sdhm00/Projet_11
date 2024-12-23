@@ -4,7 +4,7 @@ import SignIn from "./pages/SingIn";
 import User from "./pages/User";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import "./../designs/css"
+import "./../designs/css/main.css"
 
 function App() {
   return (

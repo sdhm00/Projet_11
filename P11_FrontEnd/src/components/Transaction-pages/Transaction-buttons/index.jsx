@@ -1,4 +1,4 @@
-import "./../../../../designs/css"
+import "./../../../../designs/css/main.css"
 
 function Transaction() {
     return (

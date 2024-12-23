@@ -1,6 +1,9 @@
-import "../styles/styles.css"
+import "./../../../designs/css"
+import { useParams, Navigate } from 'react-router-dom';
 
 function Home() {
+  const { id } = useParams();
+  
     return (
         <main>
           <div class="hero">

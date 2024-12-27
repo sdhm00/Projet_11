@@ -5,6 +5,7 @@ import User from "./pages/User";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./../designs/css/main.css"
+// import "./../designs/img"
 
 function App() {
   return (

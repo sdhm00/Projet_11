@@ -1,8 +1,6 @@
-import "./../../../../designs/css/main.css"
-
 function Edit() {
     return (
-        <button class="edit-button">Edit Name</button>
+        <button className="edit-button">Edit Name</button>
     );
 }
   

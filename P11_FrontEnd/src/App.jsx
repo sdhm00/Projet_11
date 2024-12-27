@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import SignIn from "./pages/SingIn";
 import User from "./pages/User";
@@ -9,6 +9,7 @@ import "./../designs/css/main.css"
 function App() {
   return (
     <>
+    <BrowserRouter>
     <Header />
     <Routes>
       <Route path="/" element={<Home />}></Route>
@@ -16,6 +17,7 @@ function App() {
       <Route path="User/:id" element={<User />}></Route>
     </Routes>
     <Footer />
+    </BrowserRouter>
     </>
   );
 }

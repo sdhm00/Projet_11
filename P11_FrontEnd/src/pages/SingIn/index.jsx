@@ -1,3 +1,5 @@
+import { Navigate } from 'react-router-dom';
+
 function SignIn() {
     return (
         <main className="main bg-dark">
@@ -17,7 +19,7 @@ function SignIn() {
                         <input type="checkbox" id="remember-me" />
                         <label for="remember-me">Remember me</label>
                     </div>
-                    <a href="./user.html" className="sign-in-button">Sign In</a>
+                    <a href="./user.html" className="sign-in-button" id="sign-in">Sign In</a>
                 </form>
             </section>
         </main>

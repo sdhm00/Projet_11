@@ -6,11 +6,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./../designs/css/main.css"
 
-const root = document.getElementById("root");
-
-ReactDOM.createRoot(root).render(
-  
-);
 function App() {
   return (
     <>

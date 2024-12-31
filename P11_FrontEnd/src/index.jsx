@@ -1,5 +1,6 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router";
 import "./../designs/css/main.css"
 import App from "./App";
 import { Provider } from 'react-redux'
@@ -11,10 +12,12 @@ import rootReducer from "./reducers"
 //     devTools: true,
 // });
 
-createRoot(document.getElementById('root')).render(
-    <StrictMode>
-        {/* <Provider store={store}> */}
-            <App/>
-        {/* </Provider> */}
-    </StrictMode>,
+const root = document.getElementById("root");
+
+ReactDOM.createRoot(root).render(
+  <BrowserRouter>
+    {/* <Provider store={store}> */}
+        <App />
+    {/* </Provider> */}
+  </BrowserRouter>
 );

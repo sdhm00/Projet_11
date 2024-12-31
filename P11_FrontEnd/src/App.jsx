@@ -6,17 +6,22 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./../designs/css/main.css"
 
+const root = document.getElementById("root");
+
+ReactDOM.createRoot(root).render(
+  
+);
 function App() {
   return (
     <>
     <BrowserRouter>
-    <Header />
-    <Routes>
-      <Route path="/" element={<Home />}></Route>
-      <Route path="SignIn" element={<SignIn />}></Route>
-      <Route path="User/:id" element={<User />}></Route>
-    </Routes>
-    <Footer />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="SignIn" element={<SignIn />}></Route>
+        <Route path="User/:id" element={<User />}></Route>
+      </Routes>
+      <Footer />
     </BrowserRouter>
     </>
   );

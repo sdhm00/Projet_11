@@ -10,7 +10,7 @@ function SignIn() {
                 <form id="form">
                     <div className="input-wrapper">
                         <label htmlFor="username">Username</label>
-                        <input type="username" id="username" name="username" />
+                        <input type="username" id="username" name="username" autoComplete="off"/>
                     </div>
                     <div className="input-wrapper">
                         <label htmlFor="password">Password</label>

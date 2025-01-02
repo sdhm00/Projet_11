@@ -17,9 +17,7 @@ const root = document.getElementById("root");
 ReactDOM.createRoot(root).render(
   <BrowserRouter>
     {/* <Provider store={store}> */}
-    <Routes>
-      <Route path="/" element={<App />} />
-    </Routes>
+        <App />
     {/* </Provider> */}
   </BrowserRouter>
 );

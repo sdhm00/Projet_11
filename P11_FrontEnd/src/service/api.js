@@ -2,19 +2,6 @@ const baseUrl = "http://localhost:3001/api-docs/"
 
 // get token
 
-async function getLogin(username, password){
-  console.log(username, password)
-  const apiLogin = await fetch(baseUrl + "/users/login", {
-    method : "POST",
-    headers : {"Content-type" : "application/json"},
-    body: JSON.stringify({ "username" : username, "password" : password })
-  })
-  console.log(apiLogin)
-  if (apiLogin.ok === true) {
-    return apiLogin.json();
-  }
-}
-
 function installConnexion(){
   const form = document.getElementById("form");
   const errorMessage = document.getElementById("errorMessage");
@@ -54,15 +41,21 @@ init();
 
 async function getLogin(username, password){
     console.log(username, password)
-    const apiLogin = await fetch(baseUrl + "/users/login", {
+    
+    const apiLogin = await fetch(baseUrl + "/user/login", {
       method : "POST",
       headers : {"Content-type" : "application/json"},
       body: JSON.stringify({ "username" : username, "password" : password })
     })
     console.log(apiLogin)
+
     if (apiLogin.ok === true) {
       return apiLogin.json();
     }
 }
 
 // post modif user
+
+async function postModif(userToken) {
+  
+}

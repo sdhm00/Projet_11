@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="SignIn" element={<SignIn />}></Route>
-        <Route path="User/:id" element={<User />}></Route>
+        <Route path="User" element={<User />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>

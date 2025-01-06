@@ -1,29 +1,45 @@
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
+import getLogin from '../../service/api';
+import User from "./../User/index.jsx";
+
 
 function SignIn() {
-    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-    const handleSubmit = ()=>{
+    const handleSubmit = async function(event) {
         event.preventDefault();
         console.log("click");
-    // const username = document.querySelector("#username").innerHTML;
-    // const password = document.querySelector("#password").innerHTML;
+        
+        const login = await getLogin(email, password);
+
+        console.log(login, "login" )
+
+        localStorage.removeItem("token")
+
+        try {
+            const token = login.token;
+            console.log(token, "token works")
     
-    console.log(username, password)
-    getLogin(username, password);
+            localStorage.setItem("token", token);
+            window.location.pathname = "User";
+        }
+          catch (error) {
+            errorMessage.style.display = "unset";
+            errorMessage.style.opacity = 1
+        }
     }
     return (
         <main className="main bg-dark">
             <section className="sign-in-content">
                 <i className="fa fa-user-circle sign-in-icon"></i>
                 <h1>Sign In</h1>
-                {/* <p id="errorMessage">Email ou mot de passe invalide. Veuillez réessayer.</p> */}
+                <p id="errorMessage">Email ou mot de passe invalide. Veuillez réessayer.</p>
                 <form id="form" onSubmit={handleSubmit}>
                     <div className="input-wrapper">
                         <label htmlFor="username">Username</label>
-                        <input value={username} onChange={(e)=> setUsername(e.target.value)} type="username" id="username" name="username" autoComplete="off"/>
+                        <input value={email} onChange={(e)=> setEmail(e.target.value)} type="username" id="username" name="username" autoComplete="off"/>
                     </div>
                     <div className="input-wrapper">
                         <label htmlFor="password">Password</label>

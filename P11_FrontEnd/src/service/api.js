@@ -1,8 +1,6 @@
 const baseUrl = "http://localhost:3001/api/v1"
 
-// get token
-
-//  post login
+//  post login ( Login )
 
 async function getLogin(email, password){
     console.log(email, password)
@@ -21,8 +19,35 @@ async function getLogin(email, password){
 
 export default getLogin;
 
-// post modif user
+// post modif user ( SignUp )
 
 async function postModif(userToken) {
   
 }
+
+// get Token 
+
+async function getToken (token) {
+  console.log(token, "the token")
+
+  const apiToken = await fetch (localStorage, {
+    method : "GET",
+    body : JSON.stringify({"token" : token})
+  })
+
+  console.log(apiToken, "Api token")
+
+  if (apiToken.ok === true) {
+    return apiToken.json();
+  }
+}
+
+// get User profile
+
+// async function getUser () {
+
+//   const userToken = await getLogin
+
+  
+// }
+

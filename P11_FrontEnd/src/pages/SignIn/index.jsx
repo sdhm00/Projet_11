@@ -19,11 +19,14 @@ function SignIn() {
         localStorage.removeItem("token")
 
         try {
-            const token = login.token;
+            const token = login.body.token;
             console.log(token, "token works")
     
             localStorage.setItem("token", token);
+            
             window.location.pathname = "User";
+
+            console.log(localStorage, "local storage")
         }
           catch (error) {
             errorMessage.style.display = "unset";

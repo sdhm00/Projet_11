@@ -24,7 +24,7 @@ function SignIn() {
     
             localStorage.setItem("token", token);
             
-            window.location.pathname = "User";
+            // window.location.pathname = "User";
 
             console.log(localStorage, "local storage")
         }

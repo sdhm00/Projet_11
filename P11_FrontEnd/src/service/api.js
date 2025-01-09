@@ -17,7 +17,7 @@ async function getLogin(email, password){
     }
 }
 
-export default getLogin;
+// export default getLogin;
 
 // post modif user ( SignUp )
 
@@ -27,12 +27,11 @@ async function postModif(userToken) {
 
 // get Token 
 
-async function getToken (token) {
-  console.log(token, "the token")
+async function getToken (email, token) {
 
-  const apiToken = await fetch (localStorage, {
+  const apiToken = await fetch (baseUrl + "/user/profile", {
     method : "GET",
-    body : JSON.stringify({"token" : token})
+    body : JSON.stringify({ "email" : email, "id" : token})
   })
 
   console.log(apiToken, "Api token")
@@ -41,6 +40,7 @@ async function getToken (token) {
     return apiToken.json();
   }
 }
+
 
 // get User profile
 
@@ -51,3 +51,8 @@ async function getToken (token) {
   
 // }
 
+const init = () => {
+  getLogin ();
+  getToken ();
+}
+export default init;

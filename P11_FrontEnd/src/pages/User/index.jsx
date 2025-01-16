@@ -1,13 +1,37 @@
 function User() {
+    // const editButton = document.getElementById("editButton")
 
+    // editButton.addEventListener ("click", async function(event){
+    //     event.stopPropagation();
+
+    // })
 
 
     return (
         <main className="main bg-dark">
             <div className="header">
                 <h1>Welcome back<br />Tony Jarvis!</h1>
-                <button className="edit-button">Edit Name</button>
+                <button className="edit-button" id="editButton">Edit Name</button>
             </div>
+            {/* <div>
+                <h1>Edit user info</h1>
+                <form>
+                    <div>
+                        <label>User name: </label>
+                        <input  type="username" id="username" name="username" />
+                    </div>
+                    <div>
+                        <label>First name: </label>
+                        <input  type="firstname" id="firstname" name="firstname" />
+                    </div>
+                    <div>
+                        <label>Last name: </label>
+                        <input  type="lastname" id="lastname" name="lastname" />
+                    </div>
+                    <button className="editInfo" id="saveButton">Save</button>
+                    <button className="editInfo" id="cancelButton">Cancel</button>
+                </form>
+            </div> */}
             <h2 className="sr-only">Accounts</h2>
             <section className="account">
                 <div className="account-content-wrapper">

@@ -107,6 +107,14 @@ body {
   font-weight: bold;
 }
 
+#signOut {
+  display: none;
+}
+
+#signIn {
+  display: flex;
+}
+
 @media (min-width: 920px) {
   .hero {
     height: 400px;

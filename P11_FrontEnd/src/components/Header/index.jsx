@@ -1,6 +1,19 @@
 import { Link } from 'react-router-dom'
 
 function Header() {
+  const signIn = document.getElementById("signIn");
+
+  const signOut = document.getElementById("signOut");
+
+  const token = localStorage.getItem("token");
+
+  if (localStorage !== null && token !== null) {
+    signOut.style.display = "none";
+  }
+  else {
+    signIn.style.display = "none";
+    signOut.style.display = "unset";
+  }
   return (
     <nav className="main-nav">
       <Link to="/">
@@ -14,7 +27,8 @@ function Header() {
         </div>
       </Link>
       <Link to="/SignIn">
-        <div className="main-nav-item"><i className="fa fa-user-circle"></i>Sign In</div>
+        <div className="main-nav-item" id="signIn" style={""}><i className="fa fa-user-circle"></i>Sign In</div>
+        <div className="main-nav-item" id="signOut" style={""}><i className="fa fa-user-circle"></i>Sign Out</div>
       </Link>
     </nav>
   );

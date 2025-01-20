@@ -1,12 +1,12 @@
 import { useState, React } from 'react';
 import { useNavigate } from 'react-router-dom';
 import getLogin from '../../service/api';
-import User from "./../User/index.jsx";
 
 
 function SignIn() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const navigate = useNavigate()
 
     const handleSubmit = async function(event) {
         event.preventDefault();
@@ -24,7 +24,7 @@ function SignIn() {
     
             localStorage.setItem("token", token);
 
-            window.location.pathname = "User";
+            navigate("/User")
 
             console.log(localStorage, "local storage")
         }
@@ -52,8 +52,6 @@ function SignIn() {
                         <input type="checkbox" id="remember-me" name="remember-me" />
                         <label htmlFor="remember-me">Remember me</label>
                     </div>
-                    {/* <a href="./user.html" className="sign-in-button" id="sign-in">Sign In</a> */}
-                    {/* <input type="submit" value="Se connecter" id="connexion"></input> */}
                     <button type="submit" value="Sign In" className="sign-in-button" id="sign-in" >Sign In</button>
                 </form>
             </section>

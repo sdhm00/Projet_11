@@ -19,25 +19,6 @@ async function getLogin(email, password){
 
 export default getLogin;
 
-// post modif user ( SignUp )
-
-async function postModif(email, password, firstName, lastName, userName) {
-  console.log(email, password, firstName, lastName, userName)
-    
-    const apiLogin = await fetch(baseUrl + "/user/signup", {
-      method : "POST",
-      headers : {"Content-type" : "application/json"},
-      body: JSON.stringify({ "email" : email, "password" : password, "firstName" : firstName, "lastName": lastName, "userName": userName })
-    })
-    console.log(apiLogin, "Api signUp")
-
-    if (apiLogin.ok === true) {
-      return apiLogin.json();
-    }
-}
-
-// export default postModif;
-
 // get Token 
 
 async function getToken (email, id) {

@@ -2,9 +2,7 @@ import { Link } from 'react-router-dom'
 
 function Header() {
   const signIn = document.getElementById("signIn");
-
   const signOut = document.getElementById("signOut");
-
   const token = localStorage.getItem("token");
 
   const currentUrl = window.location.pathname;

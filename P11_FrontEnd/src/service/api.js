@@ -21,23 +21,6 @@ export default getLogin;
 
 // get Token 
 
-async function getToken (email, id) {
-  console.log(email, id, "email and id")
-
-  const apiToken = await fetch (baseUrl + "/user/profile", {
-    method : "GET",
-    headers : {"Content-type" : "application/json"},
-    body : JSON.stringify({ "email" : email, "id" : id})
-  })
-
-  console.log(apiToken, "Api token")
-
-  if (apiToken.ok === true) {
-    return apiToken.json();
-  }
-}
-
-
 // get User profile
 
 // async function getUser () {
@@ -49,6 +32,5 @@ async function getToken (email, id) {
 
 // const init = () => {
 //   getLogin ();
-//   getToken ();
 // }
 // export default init;

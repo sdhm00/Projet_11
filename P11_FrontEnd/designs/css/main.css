@@ -115,6 +115,39 @@ body {
   display: flex;
 }
 
+.editUser {
+  background-color: white;
+}
+
+.User-edit-infos {
+  display: block;
+}
+
+.User-infos {
+  margin: 1rem;
+}
+
+.user-info-input {
+  height: 1.5rem;
+}
+
+.editUser-block {
+  display: flex;
+  justify-content: center;
+}
+
+.editUser-button {
+  display: flex;
+  width: 10%;
+  padding: 8px;
+  font-weight: bold;
+  margin: 1rem 0.25rem;
+  border-color: #00bc77;
+  background-color: #00bc77;
+  color: #fff;
+  justify-content: center;
+}
+
 @media (min-width: 920px) {
   .hero {
     height: 400px;

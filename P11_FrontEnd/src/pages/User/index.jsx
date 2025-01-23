@@ -13,25 +13,29 @@ function User() {
                 <h1>Welcome back<br />Tony Jarvis!</h1>
                 <button className="edit-button" id="editButton">Edit Name</button>
             </div>
-            {/* <div>
+            <div className="editUser">
                 <h1>Edit user info</h1>
                 <form>
-                    <div>
-                        <label>User name: </label>
-                        <input  type="username" id="username" name="username" />
+                    <div className="User-edit-infos">
+                        <div className="User-infos">
+                            <label>User name: </label>
+                            <input className="user-info-input" type="username" id="username" name="username" />
+                        </div>
+                        <div className="User-infos">
+                            <label>First name: </label>
+                            <input className="user-info-input" type="firstname" id="firstname" name="firstname" />
+                        </div>
+                        <div className="User-infos">
+                            <label>Last name: </label>
+                            <input className="user-info-input" type="lastname" id="lastname" name="lastname" />
+                        </div>
                     </div>
-                    <div>
-                        <label>First name: </label>
-                        <input  type="firstname" id="firstname" name="firstname" />
+                    <div className="editUser-block">
+                        <button className="editUser-button" id="saveButton">Save</button>
+                        <button className="editUser-button" id="cancelButton">Cancel</button>
                     </div>
-                    <div>
-                        <label>Last name: </label>
-                        <input  type="lastname" id="lastname" name="lastname" />
-                    </div>
-                    <button className="editInfo" id="saveButton">Save</button>
-                    <button className="editInfo" id="cancelButton">Cancel</button>
                 </form>
-            </div> */}
+            </div>
             <h2 className="sr-only">Accounts</h2>
             <section className="account">
                 <div className="account-content-wrapper">

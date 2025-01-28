@@ -9,6 +9,10 @@ function Header() {
 
   console.log(currentUrl, "current url")
 
+  signout = () => {
+    localStorage.removeItem("token");
+  };
+
   // signOut.style.display = "none"
 
   // if (currentUrl.includes('/User')) {

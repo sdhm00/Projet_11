@@ -13,7 +13,7 @@ function User() {
                 <h1>Welcome back<br />Tony Jarvis!</h1>
                 <button className="edit-button" id="editButton">Edit Name</button>
             </div>
-            <div className="editUser">
+            {/* <div className="editUser">
                 <h1>Edit user info</h1>
                 <form>
                     <div className="User-edit-infos">
@@ -35,7 +35,7 @@ function User() {
                         <button className="editUser-button" id="cancelButton">Cancel</button>
                     </div>
                 </form>
-            </div>
+            </div> */}
             <h2 className="sr-only">Accounts</h2>
             <section className="account">
                 <div className="account-content-wrapper">

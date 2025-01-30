@@ -5,7 +5,7 @@ export default combineReducers({
 
 // import { createSlice } from '@reduxjs/toolkit'
 
-// export const userSignIn = createSlice({
+// export const getLogin = createSlice({
 //   name: 'connexion',
 //   initialState: {
 //     value: 0,

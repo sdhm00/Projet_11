@@ -16,8 +16,8 @@ export const signIn = () => {
 //   value: 0,
 // }
 
-// export const counterSlice = createSlice({
-//   name: 'counter',
+// export const connexion = createSlice({
+//   name: 'connexion',
 //   initialState,
 //   reducers: {
 //     increment: (state) => {

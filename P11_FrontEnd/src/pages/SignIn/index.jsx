@@ -2,7 +2,6 @@ import { useState, React } from 'react';
 import { useNavigate } from 'react-router-dom';
 import getLogin from '../../service/api';
 
-
 function SignIn() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")

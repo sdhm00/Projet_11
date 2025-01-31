@@ -11,7 +11,7 @@ function SignIn() {
         event.preventDefault();
         console.log("click");
         
-        const login = await getLogin(email, password);
+        const login = await getToken(email, password);
 
         console.log(login, "login" )
 

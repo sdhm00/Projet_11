@@ -2,7 +2,7 @@ const baseUrl = "http://localhost:3001/api/v1"
 
 //  post login ( Login )
 
-async function getLogin(email, password){
+async function getToken(email, password){
     console.log(email, password)
     
     const apiLogin = await fetch(baseUrl + "/user/login", {
@@ -17,9 +17,9 @@ async function getLogin(email, password){
     }
 }
 
-export default getLogin;
+export default getToken;
 
-// get Token 
+// get Login
 
 // get User profile
 

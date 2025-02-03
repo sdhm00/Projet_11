@@ -10,27 +10,38 @@ async function getToken(email, password){
       headers : {"Content-type" : "application/json"},
       body: JSON.stringify({ "email" : email, "password" : password })
     })
+
     console.log(apiLogin, "Api login")
 
     if (apiLogin.ok === true) {
       return apiLogin.json();
+      
     }
 }
 
-export default getToken;
+// export default getToken;
 
-// get Login
+// get Login ( user profile )
+
+async function getLogin(login, localStorage) {
+  const login = await getToken(email, password);
+  const token = login.body.token;
+
+  localStorage.removeItem("token")
+
+  if (login.ok === true) {
+    return localStorage.setItem("token", token);
+  }
+  
+}
+
+// export default getLogin;
+
+const init = () => {
+  getToken();
+  getLogin();
+}
+
+export default init;
 
 // get User profile
-
-// async function getUser () {
-
-//   const userToken = await getLogin
-
-  
-// }
-
-// const init = () => {
-//   getLogin ();
-// }
-// export default init;

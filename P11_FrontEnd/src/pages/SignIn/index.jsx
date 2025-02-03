@@ -1,6 +1,7 @@
 import { useState, React } from 'react';
 import { useNavigate } from 'react-router-dom';
-import getLogin from '../../service/api';
+import getToken from '../../service/api';
+import getLogin from "../../service/api";
 
 function SignIn() {
     const [email, setEmail] = useState("")
@@ -10,7 +11,6 @@ function SignIn() {
     const handleSubmit = async function(event) {
         event.preventDefault();
         console.log("click");
-        
         const login = await getToken(email, password);
 
         console.log(login, "login" )

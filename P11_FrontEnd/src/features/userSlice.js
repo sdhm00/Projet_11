@@ -18,7 +18,9 @@ export const userSlice = createSlice({
     signOut: (state) => {
       state.user = null
     },
-    
+    userProfile: (state) => {
+      state.user = null
+    },
   },
 })
 

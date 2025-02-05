@@ -1,4 +1,17 @@
+import getLogin from "../../service/api"
+
 function User() {
+    // const id = localStorage.id
+
+    const connexion = async function(event) {
+        event.preventDefault();
+
+        const logUser = await getLogin()
+
+    }
+
+    console.log(connexion, "connexion")
+
     // const editButton = document.getElementById("editButton")
 
     // editButton.addEventListener ("click", async function(event){

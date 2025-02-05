@@ -19,21 +19,27 @@ async function getToken(email, password){
     }
 }
 
-export default getToken;
+// export default getToken;
 
 // get Login ( user profile )
 
-async function getLogin(getToken, localStorage) {
-  console.log(getToken, localStorage.id)
+async function getLogin() {
 
-  const loginId = await fetch()
+  const loginId = await fetch(baseUrl + "/user/profile")
+
+  console.log(loginId, "login Id")
+
+  if (loginId.ok === true) {
+    return loginId.json();
+  }
+  throw new Error('Impossible de contacter le serveur')
 }
 
-// const init = () => {
-//   getToken();
-//   getLogin();
-// }
+const init = () => {
+  getToken();
+  getLogin();
+}
 
-// export default init;
+export default init;
 
 // get User profile

@@ -1,7 +1,6 @@
 import { useState, React } from 'react';
 import { useNavigate } from 'react-router-dom';
 import getToken from '../../service/api';
-import getLogin from "../../service/api";
 
 function SignIn() {
     const [email, setEmail] = useState("")
@@ -13,21 +12,16 @@ function SignIn() {
         console.log("click");
         const login = await getToken(email, password);
 
-        console.log(login, "login" )
+        console.log(login, "login infos" )
 
         localStorage.removeItem("token")
+        
+        localStorage.setItem("token", login);
 
-        try {
-            const token = login.body.token;
-            console.log(token, "token works")
-    
-            localStorage.setItem("token", token);
-
+        if(localStorage.id === localStorage.token){
             navigate("/User")
-
-            console.log(localStorage, "local storage")
         }
-          catch (error) {
+        else {
             errorMessage.style.display = "unset";
             errorMessage.style.opacity = 1
         }

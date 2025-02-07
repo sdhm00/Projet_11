@@ -1,4 +1,4 @@
-import getLogin from "../../service/api"
+
 
 function User() {
     const id = localStorage.id
@@ -7,8 +7,6 @@ function User() {
 
     const connexion = async function(event) {
         event.preventDefault();
-
-        const logUser = await getLogin(id)
 
     }
 

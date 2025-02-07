@@ -2,7 +2,7 @@ const baseUrl = "http://localhost:3001/api/v1"
 
 //  post login ( Login )
 
-async function getToken(email, password){
+export const getToken= async(email, password) => {
     console.log(email, password)
     
     const apiLogin = await fetch(baseUrl + "/user/login", {
@@ -17,37 +17,26 @@ async function getToken(email, password){
       return localStorage.id;
 
     }
-}
-
-// export default getToken;
+};
 
 // get Login ( user profile )
 
-async function getLogin(id) {
-
+export const getLogin = async(token) => {
+console.log(token, "this token")
   const loginId = await fetch(baseUrl + "/user/profile", {
-    method : "GET",
-    headers : { Authorization : "Bearer " + id },
-    body: JSON.stringify({ "email" : email })
+    method : "POST",
+    headers : { "Content-Type": "application/json", Authorization : `Bearer ${token}` },
   })
 
-  console.log(loginId, "login Id")
+  console.log(loginId, "Api login Id")
 
   if (loginId.ok === true) {
     return loginId.json();
   }
-}
+};
 
 // get User profile
 
-async function getProfile(getLogin) {
+// async function getProfile(getLogin) {
 
-}
-
-const init = () => {
-  getToken();
-  getLogin();
-  getProfile();
-}
-
-export default init;
+// }

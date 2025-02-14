@@ -1,7 +1,6 @@
 import { useState, React } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getLogin, getToken } from '../../service/api';
-// import { getToken, getLogin } from '../../service/api';
 
 function SignIn() {
     const [email, setEmail] = useState("")
@@ -11,17 +10,25 @@ function SignIn() {
     const handleSubmit = async function(event) {
         event.preventDefault();
         console.log("click");
-        // const token = await getToken(email, password);
-        const token = await getToken(email, password)
 
-        console.log(token, "token infos" )
+        // const user = ( email, password );
+
+        const userToken = await getToken(email, password);
+
+        console.log(userToken, "user token infos" )
 
         localStorage.removeItem("token")
-        localStorage.setItem("token", token);
 
-        // const login = await getLogin(token);
-        const login = await getLogin(token)
-        console.log(login, " login")
+        if (userToken.status === 200) {
+            localStorage.setItem("token", userToken.body.token);
+        }
+        
+        const token = localStorage.getItem("token")
+
+        if (token) {
+            const login = await getLogin(token)
+            console.log(login, " login")
+        }
 
         // // if(localStorage.id === localStorage.token){
         //     navigate("/User")

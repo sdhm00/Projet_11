@@ -8,14 +8,13 @@ export const getToken= async(email, password) => {
     const apiLogin = await fetch(baseUrl + "/user/login", {
       method : "POST",
       headers : {"Content-type" : "application/json"},
-      body: JSON.stringify({ "email" : email, "password" : password })
+      body: JSON.stringify({ "email" : email, "password" : password }),
     })
     
     console.log(apiLogin, "Api login")
 
     if (apiLogin.ok === true) {
-      return localStorage.id;
-
+      return apiLogin.json();
     }
 };
 

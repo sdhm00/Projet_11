@@ -28,15 +28,16 @@ function SignIn() {
         if (token) {
             const login = await getLogin(token)
             console.log(login, " login")
+            const loginStatus = login.status
+            console.log(loginStatus, "status")
+            if(loginStatus === 200) {
+                navigate("/User")
+            }
+            else {
+                errorMessage.style.display = "unset";
+                errorMessage.style.opacity = 1
+            }
         }
-
-        // // if(localStorage.id === localStorage.token){
-        //     navigate("/User")
-        // }
-        // else {
-        //     errorMessage.style.display = "unset";
-        //     errorMessage.style.opacity = 1
-        // }
     }
     return (
         <main className="main bg-dark">

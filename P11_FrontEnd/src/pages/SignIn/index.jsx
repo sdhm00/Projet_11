@@ -5,13 +5,14 @@ import { getLogin, getToken } from '../../service/api';
 function SignIn() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    
+    const errorMessage = document.querySelector(".error_message")
+
     const navigate = useNavigate()
 
     const handleSubmit = async function(event) {
         event.preventDefault();
         console.log("click");
-
-        // const user = ( email, password );
 
         const userToken = await getToken(email, password);
 
@@ -21,24 +22,42 @@ function SignIn() {
 
         if (userToken.status === 200) {
             localStorage.setItem("token", userToken.body.token);
-        }
-        
-        const token = localStorage.getItem("token")
 
-        if (token) {
+            const token = localStorage.getItem("token")
             const login = await getLogin(token)
-            console.log(login, " login")
-            
-            const loginStatus = login.status
-
-            if(loginStatus === 200) {
-                navigate("/User")
+        
+            if(login.status === 200) {
+                // navigate("/User")
             }
-            else {
-                errorMessage.style.display = "unset";
-                errorMessage.style.opacity = 1
-            }
+        } else {
+            errorMessage.style.display = "unset";
+            errorMessage.style.opacity = 1
         }
+
+        // const token = localStorage.getItem("token")
+            
+        //     const login = await getLogin(token)
+            
+        //     if(login.status === 200) {
+        //         // navigate("/User")
+        //     }
+        
+        // const token = localStorage.getItem("token")
+
+        // if (token) {
+        //     const login = await getLogin(token)
+        //     console.log(login, " login")
+        // }
+
+        // const loginStatus = login.status
+
+            // if(loginStatus === 200) {
+            //     navigate("/User")
+            // }
+            // else {
+            //     errorMessage.style.display = "unset";
+            //     errorMessage.style.opacity = 1
+            // }
     }
     return (
         <main className="main bg-dark">
@@ -54,7 +73,7 @@ function SignIn() {
                         <label htmlFor="password">Password</label>
                         <input value={password} onChange={(e)=> setPassword(e.target.value)} type="password" id="password" name="password" />
                     </div>
-                    <p id="errorMessage">Email ou mot de passe invalide. Veuillez réessayer.</p>
+                    <p className="error_message">Email ou mot de passe invalide. Veuillez réessayer.</p>
                     <div className="input-remember">
                         <input type="checkbox" id="remember-me" name="remember-me" />
                         <label htmlFor="remember-me">Remember me</label>

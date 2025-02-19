@@ -13,9 +13,7 @@ export const getToken= async(email, password) => {
     
     console.log(apiLogin, "Api login")
 
-    if (apiLogin.ok === true) {
-      return apiLogin.json();
-    }
+    return apiLogin.json();
 };
 
 // get Login ( user profile )
@@ -29,9 +27,7 @@ console.log(token, "this token")
 
   console.log(loginId, "Api login Id")
 
-  if (loginId.ok === true) {
-    return loginId.json();
-  }
+  return loginId.json();
 };
 
 // get User profile

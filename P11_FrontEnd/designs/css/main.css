@@ -100,7 +100,7 @@ body {
   font-size: 0.9rem;
 }
 
-#errorMessage {
+.error_message {
   display: none;
   opacity: 0;
   color: red;

@@ -28,8 +28,9 @@ function SignIn() {
         if (token) {
             const login = await getLogin(token)
             console.log(login, " login")
+            
             const loginStatus = login.status
-            console.log(loginStatus, "status")
+
             if(loginStatus === 200) {
                 navigate("/User")
             }

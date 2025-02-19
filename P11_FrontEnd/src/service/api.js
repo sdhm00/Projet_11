@@ -38,4 +38,6 @@ console.log(token, "this token")
 
 // async function getProfile(getLogin) {
 
+//   const userProfile = await fetch(baseUrl + "")
+
 // }

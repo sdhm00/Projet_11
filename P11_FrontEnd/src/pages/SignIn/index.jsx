@@ -1,5 +1,6 @@
 import { useState, React } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
 import { getLogin, getToken } from '../../service/api';
 
 function SignIn() {
@@ -25,39 +26,18 @@ function SignIn() {
 
             const token = localStorage.getItem("token")
             const login = await getLogin(token)
+
+            const dispatch = useDispatch()
         
             if(login.status === 200) {
+                console.log("first name", login.body.firstName)
+                console.log("last name", login.body.lastName)
                 // navigate("/User")
             }
         } else {
             errorMessage.style.display = "unset";
             errorMessage.style.opacity = 1
         }
-
-        // const token = localStorage.getItem("token")
-            
-        //     const login = await getLogin(token)
-            
-        //     if(login.status === 200) {
-        //         // navigate("/User")
-        //     }
-        
-        // const token = localStorage.getItem("token")
-
-        // if (token) {
-        //     const login = await getLogin(token)
-        //     console.log(login, " login")
-        // }
-
-        // const loginStatus = login.status
-
-            // if(loginStatus === 200) {
-            //     navigate("/User")
-            // }
-            // else {
-            //     errorMessage.style.display = "unset";
-            //     errorMessage.style.opacity = 1
-            // }
     }
     return (
         <main className="main bg-dark">

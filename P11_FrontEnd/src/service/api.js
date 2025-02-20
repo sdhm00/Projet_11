@@ -32,8 +32,15 @@ console.log(token, "this token")
 
 // get User profile
 
-// async function getProfile(getLogin) {
+export const getProfile = async(token, firstname, lastname) => {
 
-//   const userProfile = await fetch(baseUrl + "")
+  const userProfile = await fetch(baseUrl + "/user/profile", {
+    method : "PUT",
+    headers : { "Content-Type": "application/json", Authorization : `Bearer ${token}` },
+    body : JSON.stringify({"firstname" : firstname, "lastname" : lastname}),
+  })
 
-// }
+  console.log(userProfile, "userprofile")
+
+  return userProfile.json();
+}

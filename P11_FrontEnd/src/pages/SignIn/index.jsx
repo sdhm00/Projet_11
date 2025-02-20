@@ -6,6 +6,8 @@ import { getLogin, getToken } from '../../service/api';
 function SignIn() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+
+    const dispatch = useDispatch()
     
     const errorMessage = document.querySelector(".error_message")
 
@@ -26,13 +28,12 @@ function SignIn() {
 
             const token = localStorage.getItem("token")
             const login = await getLogin(token)
-
-            const dispatch = useDispatch()
         
             if(login.status === 200) {
-                console.log("first name", login.body.firstName)
-                console.log("last name", login.body.lastName)
-                // navigate("/User")
+                // dispatch(userData(login.body.firstName, login.body.lastName))
+                // console.log("first name", login.body.firstName)
+                // console.log("last name", login.body.lastName)
+                navigate("/User")
             }
         } else {
             errorMessage.style.display = "unset";

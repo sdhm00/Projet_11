@@ -1,16 +1,16 @@
 import ModifUser from "../../components/ModifUser";
 
 function User() {
-    const id = localStorage.id
+    // const id = localStorage.id
 
-    console.log(id, "id")
+    // console.log(id, "id")
 
-    const connexion = async function(event) {
-        event.preventDefault();
+    // const connexion = async function(event) {
+    //     event.preventDefault();
 
-    }
+    // }
 
-    console.log(connexion, "connexion")
+    // console.log(connexion, "connexion")
 
     // const editButton = document.getElementById("editButton")
 

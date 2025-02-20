@@ -10,8 +10,6 @@ export const getToken= async(email, password) => {
       headers : {"Content-type" : "application/json"},
       body: JSON.stringify({ "email" : email, "password" : password }),
     })
-    
-    console.log(apiLogin, "Api login")
 
     return apiLogin.json();
 };
@@ -25,19 +23,17 @@ console.log(token, "this token")
     headers : { "Content-Type": "application/json", Authorization : `Bearer ${token}` },
   })
 
-  console.log(loginId, "Api login Id")
-
   return loginId.json();
 };
 
 // get User profile
 
-export const getProfile = async(token, firstname, lastname) => {
+export const modifProfile = async(token, username) => {
 
   const userProfile = await fetch(baseUrl + "/user/profile", {
     method : "PUT",
     headers : { "Content-Type": "application/json", Authorization : `Bearer ${token}` },
-    body : JSON.stringify({"firstname" : firstname, "lastname" : lastname}),
+    body : JSON.stringify({"username" : username}),
   })
 
   console.log(userProfile, "userprofile")

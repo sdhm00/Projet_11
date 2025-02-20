@@ -1,13 +1,10 @@
 import { useState, React } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux'
 import { getLogin, getToken } from '../../service/api';
 
 function SignIn() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-
-    const dispatch = useDispatch()
     
     const errorMessage = document.querySelector(".error_message")
 
@@ -30,9 +27,10 @@ function SignIn() {
             const login = await getLogin(token)
         
             if(login.status === 200) {
-                // dispatch(userData(login.body.firstName, login.body.lastName))
-                // console.log("first name", login.body.firstName)
-                // console.log("last name", login.body.lastName)
+                console.log("first name", login.body.firstName)
+                console.log("last name", login.body.lastName)
+
+                console.log("user infos name", login.body)
                 navigate("/User")
             }
         } else {

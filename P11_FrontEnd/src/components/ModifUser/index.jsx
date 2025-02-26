@@ -1,3 +1,5 @@
+import { getLogin, modifProfile } from "../../service/api";
+
 function ModifUser() {
     return (
         <div>

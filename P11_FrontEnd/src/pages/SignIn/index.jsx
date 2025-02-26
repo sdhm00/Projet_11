@@ -1,6 +1,7 @@
 import { useState, React } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getLogin, getToken } from '../../service/api';
+import { signedIn, getUser } from '../../features/actions'
 
 function SignIn() {
     const [email, setEmail] = useState("")
@@ -29,6 +30,9 @@ function SignIn() {
             if(login.status === 200) {
                 console.log("first name", login.body.firstName)
                 console.log("last name", login.body.lastName)
+
+                dispatchEvent(getUser(login.body.firstName, login.body.lastName));
+                dispatchEvent(signedIn());
 
                 console.log("user infos name", login.body)
                 navigate("/User")

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   signIn,
   signOut,
+  userProfile
 } from './userSlice';
 
 export function Counter() {
@@ -11,19 +12,20 @@ export function Counter() {
   const [incrementAmount, setIncrementAmount] = useState('2');
 
   return (
+    
     <div>
       <div>
         <button
-          aria-label="Increment value"
-          onClick={() => dispatch(increment())}
+          aria-label="sign in value"
+          onClick={() => dispatch(signIn())}
         >
           +
         </button>
         <span className={styles.value}>{count}</span>
         <button
           className={styles.button}
-          aria-label="Decrement value"
-          onClick={() => dispatch(decrement())}
+          aria-label="sign out value"
+          onClick={() => dispatch(signOut())}
         >
           -
         </button>
@@ -31,7 +33,7 @@ export function Counter() {
       <div className={styles.row}>
         <input
           className={styles.textbox}
-          aria-label="Set increment amount"
+          aria-label="modif user info value"
           value={incrementAmount}
           onChange={e => setIncrementAmount(e.target.value)}
         />

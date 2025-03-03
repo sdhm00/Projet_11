@@ -35,8 +35,8 @@ function SignIn() {
                 console.log("last name", login.body.lastName)
                 console.log("last name", login.body.userName)
 
-                dispatch(signIn())
                 dispatch(userProfile(login.body.userName))
+                dispatch(signIn())
 
                 console.log("user infos name", login.body)
                 navigate("/User")

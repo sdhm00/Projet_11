@@ -35,7 +35,7 @@ function SignIn() {
                 console.log("last name", login.body.lastName)
                 console.log("user name", login.body.userName)
 
-                dispatch(userProfile(login.body.userName))
+                dispatch(userProfile(login.body))
                 dispatch(signIn())
 
                 console.log("user infos name", login.body)

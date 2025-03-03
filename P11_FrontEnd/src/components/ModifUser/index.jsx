@@ -2,15 +2,23 @@ import { useSelector, useDispatch } from 'react-redux';
 import { userProfile } from '../../features/userSlice';
 
 function ModifUser() {
-    const loged = useSelector((state) => state.userProfile.user)
+    const loged = useSelector((state) => state.userProfile.user.userName)
 
-    console.log(loged, " user data ?")
+    console.log(loged, " username data ?")
 
+    const firstName = useSelector((state) => state.userProfile.user.firstName)
+
+    console.log(firstName, " user first name ?")
+
+    const lastName = useSelector((state) => state.userProfile.user.lastName)
+
+    console.log(lastName, " user last name ?")
+    
     return (
         <div>
             <div className="header">
                 <h1>Welcome back<br />
-                <div className="userName"> Tony Stark !</div>
+                <div className="userName"> {firstName} {lastName} !</div>
                 </h1>
                 <button className="edit-button" id="editButton">Edit Name</button>
             </div>

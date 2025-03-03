@@ -107,14 +107,6 @@ body {
   font-weight: bold;
 }
 
-#signOut {
-  display: none;
-}
-
-#signIn {
-  display: flex;
-}
-
 .editUser {
   background-color: white;
 }

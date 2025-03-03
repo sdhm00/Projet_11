@@ -1,25 +1,7 @@
 import ModifUser from "../../components/ModifUser";
 
 function User() {
-    // const id = localStorage.id
-
-    // console.log(id, "id")
-
-    // const connexion = async function(event) {
-    //     event.preventDefault();
-
-    // }
-
-    // console.log(connexion, "connexion")
-
-    // const editButton = document.getElementById("editButton")
-
-    // editButton.addEventListener ("click", async function(event){
-    //     event.stopPropagation();
-
-    // })
-
-
+    
     return (
         <main className="main bg-dark">
             <ModifUser/>

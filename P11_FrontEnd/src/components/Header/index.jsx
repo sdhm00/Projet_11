@@ -6,17 +6,9 @@ import { signOut } from '../../features/userSlice';
 function Header() {
   const loged = useSelector(state => state.userProfile.loged)
 
-  const signIn = document.getElementById("signIn")
-  const signOout = document.getElementById("signOut")
-
   const navigate = useNavigate()
 
   const dispatch = useDispatch()
-
-  if (loged === true) {
-    signIn.style.display = "none"
-    signOout.style.display = "unset"
-  }
 
   const logedOut = function(event) {
     event.preventDefault();
@@ -44,8 +36,13 @@ function Header() {
         </div>
       </Link>
       <Link to="/SignIn">
-        <div className="main-nav-item" id="signIn"><i className="fa fa-user-circle"></i>Sign In</div>
-        <div className="main-nav-item" id="signOut" onClick={logedOut}><i className="fa fa-user-circle"></i>Sign Out</div>
+        <div>
+          {loged ? (
+            <div className="main-nav-item" id="signOut" onClick={logedOut}><i className="fa fa-user-circle"></i>Sign Out</div>
+          ) : (
+            <div className="main-nav-item" id="signIn"><i className="fa fa-user-circle"></i>Sign In</div>
+          )}
+        </div>
       </Link>
     </nav>
   );

@@ -1,10 +1,17 @@
-import { getLogin, modifProfile } from "../../service/api";
+import { useSelector, useDispatch } from 'react-redux';
+import { userProfile } from '../../features/userSlice';
 
 function ModifUser() {
+    const loged = useSelector((state) => state.userProfile.user)
+
+    console.log(loged, " user data ?")
+
     return (
         <div>
             <div className="header">
-                <h1>Welcome back<br />Tony Jarvis!</h1>
+                <h1>Welcome back<br />
+                <div className="userName"> Tony Stark !</div>
+                </h1>
                 <button className="edit-button" id="editButton">Edit Name</button>
             </div>
             {/* <div className="editUser">

@@ -33,7 +33,7 @@ function SignIn() {
             if(login.status === 200) {
                 console.log("first name", login.body.firstName)
                 console.log("last name", login.body.lastName)
-                console.log("last name", login.body.userName)
+                console.log("user name", login.body.userName)
 
                 dispatch(userProfile(login.body.userName))
                 dispatch(signIn())

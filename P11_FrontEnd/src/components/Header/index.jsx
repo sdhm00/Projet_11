@@ -1,10 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import { signOut } from '../../features/userSlice';
 
 function Header() {
   const loged = useSelector(state => state.userProfile.loged)
+
+  console.log(loged, "loged ? ")
 
   const navigate = useNavigate()
 
@@ -17,12 +19,13 @@ function Header() {
 
     localStorage.removeItem("token")
 
-    navigate("/")
-
     signIn.style.display = "flex"
     signOout.style.display = "none"
-  }
 
+    if (loged === false) {
+      navigate("/")
+    }
+  }
   return (
     <nav className="main-nav">
       <Link to="/">
@@ -35,15 +38,13 @@ function Header() {
           <h1 className="sr-only">Argent Bank</h1>
         </div>
       </Link>
-      <Link to="/SignIn">
         <div>
           {loged ? (
-            <div className="main-nav-item" id="signOut" onClick={logedOut}><i className="fa fa-user-circle"></i>Sign Out</div>
+            <Link to="/"><div className="main-nav-item" id="signOut" onClick={logedOut}><i className="fa fa-user-circle"></i>Sign Out</div></Link>
           ) : (
-            <div className="main-nav-item" id="signIn"><i className="fa fa-user-circle"></i>Sign In</div>
+            <Link to="/SignIn"><div className="main-nav-item" id="signIn"><i className="fa fa-user-circle"></i>Sign In</div></Link>
           )}
         </div>
-      </Link>
     </nav>
   );
 }

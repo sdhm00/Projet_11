@@ -13,6 +13,8 @@ function ModifUser() {
     const lastName = useSelector((state) => state.userProfile.user.lastName)
 
     console.log(lastName, " user last name ?")
+
+    const openEdit = function(event) {}
     
     return (
         <div>
@@ -20,7 +22,7 @@ function ModifUser() {
                 <h1>Welcome back<br />
                 <div className="userName"> {firstName} {lastName} !</div>
                 </h1>
-                <button className="edit-button" id="editButton">Edit Name</button>
+                <button className="edit-button" id="editButton" onClick={openEdit}>Edit Name</button>
             </div>
             {/* <div className="editUser">
                 <h1>Edit user info</h1>

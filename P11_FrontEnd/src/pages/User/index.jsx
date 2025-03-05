@@ -1,7 +1,6 @@
 import ModifUser from "../../components/ModifUser";
 
 function User() {
-    
     return (
         <main className="main bg-dark">
             <ModifUser/>

@@ -19,12 +19,8 @@ function Header() {
 
     localStorage.removeItem("token")
 
-    signIn.style.display = "flex"
-    signOout.style.display = "none"
+    navigate("/")
 
-    if (loged === false) {
-      navigate("/")
-    }
   }
   return (
     <nav className="main-nav">
@@ -38,13 +34,15 @@ function Header() {
           <h1 className="sr-only">Argent Bank</h1>
         </div>
       </Link>
+      
         <div>
           {loged ? (
-            <Link to="/"><div className="main-nav-item" id="signOut" onClick={logedOut}><i className="fa fa-user-circle"></i>Sign Out</div></Link>
+            <NavLink to="/"><div className="main-nav-item" id="signOut" onClick={logedOut}><i className="fa fa-user-circle"></i>Sign Out</div></NavLink>
           ) : (
             <Link to="/SignIn"><div className="main-nav-item" id="signIn"><i className="fa fa-user-circle"></i>Sign In</div></Link>
           )}
         </div>
+        
     </nav>
   );
 }

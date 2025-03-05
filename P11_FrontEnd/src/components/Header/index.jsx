@@ -6,8 +6,6 @@ import { signOut } from '../../features/userSlice';
 function Header() {
   const loged = useSelector(state => state.userProfile.loged)
 
-  console.log(loged, "loged ? ")
-
   const navigate = useNavigate()
 
   const dispatch = useDispatch()

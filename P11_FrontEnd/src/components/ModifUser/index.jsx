@@ -14,7 +14,7 @@ function ModifUser() {
 
     console.log(lastName, " user last name ?")
 
-    const openEdit = function(event) {}
+    const openEdit = async function(event) {}
     
     return (
         <div>

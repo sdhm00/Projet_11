@@ -15,11 +15,11 @@ function ModifUser() {
     const lastName = useSelector((state) => state.userProfile.user.lastName)
     console.log(lastName, " user last name ?")
 
-    let navigate = useNavigate();
+    // let navigate = useNavigate();
 
-    if (loged === false) {
-        navigate("/")
-    }
+    // if (loged === false) {
+    //     navigate("/")
+    // }
 
     const openEdit = async function(event) {}
     
@@ -32,7 +32,7 @@ function ModifUser() {
                     </h1>
                     <button className="edit-button" id="editButton" onClick={openEdit}>Edit Name</button>
                 </div>
-            {/* ) : (
+            {/* ) : ( */}
                 <div className="editUser">
                     <h1>Edit user info</h1>
                     <form>
@@ -43,11 +43,11 @@ function ModifUser() {
                             </div>
                             <div className="User-infos">
                                 <label>First name: </label>
-                                <input className="user-info-input" type="firstname" id="firstname" name="firstname" value={firstName} readOnly/>
+                                <input className="user-info-input" type="firstname" id="firstname" name="firstname" value={firstName} readOnly disabled/>
                             </div>
                             <div className="User-infos">
                                 <label>Last name: </label>
-                                <input className="user-info-input" type="lastname" id="lastname" name="lastname" value={lastName} readOnly />
+                                <input className="user-info-input" type="lastname" id="lastname" name="lastname" value={lastName} readOnly disabled/>
                         </div>
                         </div>
                         <div className="editUser-block">
@@ -56,7 +56,7 @@ function ModifUser() {
                         </div>
                     </form>
                 </div>
-            )}  */}
+            {/* )}  */}
         </div>
     )
 }

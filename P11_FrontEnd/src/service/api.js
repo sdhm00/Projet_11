@@ -28,15 +28,15 @@ console.log(token, "this token")
 
 // get User profile
 
-export const modifProfile = async(token, username) => {
+export const modifProfile = async(token, userName) => {
 
   const usernameProfile = await fetch(baseUrl + "/user/profile", {
     method : "PUT",
     headers : { "Content-Type": "application/json", Authorization : `Bearer ${token}` },
-    body : JSON.stringify({"username" : username}),
+    body : JSON.stringify({"userName" : userName}),
   })
 
-  console.log(userProfile, "userprofile")
+  console.log(usernameProfile, "userprofile")
 
   return usernameProfile.json();
 }

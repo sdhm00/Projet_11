@@ -35,9 +35,7 @@ function Header() {
       
         <div>
           {loged ? (
-            <NavLink to="/"><div className="main-nav-item" id="signOut" onClick={logedOut}>
-              <FontAwesomeIcon></FontAwesomeIcon>
-              <i className="fa fa-user-circle user-circle"></i>Sign Out</div></NavLink>
+            <NavLink to="/"><div className="main-nav-item" id="signOut" onClick={logedOut}><i class="fa-solid fa-circle-user"></i>Sign Out</div></NavLink>
           ) : (
             <Link to="/SignIn"><div className="main-nav-item" id="signIn"><i className="fa fa-user-circle"></i>Sign In</div></Link>
           )}

@@ -8,14 +8,17 @@ function ModifUser() {
     const loged = useSelector((state) => state.userProfile.loged)
     console.log(loged, "is it loged ?")
 
-    const userName = useSelector((state) => state.userProfile.user.userName)
-    console.log(userName, " username data ?")
+    // const userName = useSelector((state) => state.userProfile.user.userName)
+    // console.log(userName, " username data ?")
 
     const firstName = useSelector((state) => state.userProfile.user.firstName)
     console.log(firstName, " user first name ?")
 
     const lastName = useSelector((state) => state.userProfile.user.lastName)
     console.log(lastName, " user last name ?")
+
+    const dataUser = useSelector((state) => state.userProfile.user)
+    console.log(dataUser.userName, "username data")
 
     const [newUserName, setNewUserName] = useState();
     const [editing, setEditing] = useState(false);
@@ -29,7 +32,7 @@ function ModifUser() {
         const usernameChanged = await modifProfile(token, newUserName);
         console.log("New username", usernameChanged);
 
-        dispatch(userProfile(usernameChanged.body.user.userName))
+        dispatch(userProfile(usernameChanged.body.userName))
         setEditing(false)
     }
     
@@ -42,7 +45,7 @@ function ModifUser() {
                     <div className="User-edit-infos">
                         <div className="User-infos">
                             <label>User name: </label>
-                            <input className="user-info-input" type="username" id="username" name="username" value={userName} onChange={(e) => {setNewUserName(e.target.value)}} />
+                            <input className="user-info-input" type="username" id="username" name="username" placeholder={dataUser.userName} onChange={(e) => {setNewUserName(e.target.value)}} />
                         </div>
                         <div className="User-infos">
                             <label>First name: </label>

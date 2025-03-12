@@ -30,7 +30,7 @@ console.log(token, "this token")
 
 export const modifProfile = async(token, username) => {
 
-  const userProfile = await fetch(baseUrl + "/user/profile", {
+  const usernameProfile = await fetch(baseUrl + "/user/profile", {
     method : "PUT",
     headers : { "Content-Type": "application/json", Authorization : `Bearer ${token}` },
     body : JSON.stringify({"username" : username}),
@@ -38,5 +38,5 @@ export const modifProfile = async(token, username) => {
 
   console.log(userProfile, "userprofile")
 
-  return userProfile.json();
+  return usernameProfile.json();
 }

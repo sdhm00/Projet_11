@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { userProfile } from '../../features/userSlice';
 import { useNavigate } from "react-router";
+import { useState } from 'react';
+import { modifProfile } from '../../service/api';
 
 function ModifUser() {
     const loged = useSelector((state) => state.userProfile.loged)
@@ -15,48 +17,56 @@ function ModifUser() {
     const lastName = useSelector((state) => state.userProfile.user.lastName)
     console.log(lastName, " user last name ?")
 
-    // let navigate = useNavigate();
+    const [newUserName, setNewUserName] = useState();
+    const [editing, setEditing] = useState(false);
 
-    // if (loged === false) {
-    //     navigate("/")
-    // }
+    const dispatch = useDispatch();
 
-    const openEdit = async function(event) {}
+    const handleChange = async function(event) {
+        event.preventDefault();
+
+        const token = localStorage.getItem("token");
+        const usernameChanged = await modifProfile(token, newUserName);
+        console.log("New username", usernameChanged);
+
+        dispatch(userProfile(usernameChanged.body.user.userName))
+        setEditing(false)
+    }
     
     return (
         <div>
-            {/* {editing ? ( */}
-                <div className="header">
-                    <h1>Welcome back<br />
+            {editing ? (
+            <div className="editUser">
+                <h1>Edit user info</h1>
+                <form>
+                    <div className="User-edit-infos">
+                        <div className="User-infos">
+                            <label>User name: </label>
+                            <input className="user-info-input" type="username" id="username" name="username" value={userName} onChange={(e) => {setNewUserName(e.target.value)}} />
+                        </div>
+                        <div className="User-infos">
+                            <label>First name: </label>
+                            <input className="user-info-input" type="firstname" id="firstname" name="firstname" value={firstName} readOnly disabled/>
+                        </div>
+                        <div className="User-infos">
+                            <label>Last name: </label>
+                            <input className="user-info-input" type="lastname" id="lastname" name="lastname" value={lastName} readOnly disabled/>
+                    </div>
+                    </div>
+                    <div className="editUser-block">
+                        <button className="editUser-button" id="saveButton" onClick={handleChange}>Save</button>
+                        <button className="editUser-button" id="cancelButton" onClick={() => setEditing(false)}>Cancel</button>
+                    </div>
+                </form>
+            </div>
+            ) : (
+            <div className="header">
+                <h1>Welcome back<br />
                     <div className="userName"> {firstName} {lastName}!</div>
-                    </h1>
-                    <button className="edit-button" id="editButton" onClick={openEdit}>Edit Name</button>
-                </div>
-            {/* ) : ( */}
-                <div className="editUser">
-                    <h1>Edit user info</h1>
-                    <form>
-                        <div className="User-edit-infos">
-                            <div className="User-infos">
-                                <label>User name: </label>
-                                <input className="user-info-input" type="username" id="username" name="username" value={userName} />
-                            </div>
-                            <div className="User-infos">
-                                <label>First name: </label>
-                                <input className="user-info-input" type="firstname" id="firstname" name="firstname" value={firstName} readOnly disabled/>
-                            </div>
-                            <div className="User-infos">
-                                <label>Last name: </label>
-                                <input className="user-info-input" type="lastname" id="lastname" name="lastname" value={lastName} readOnly disabled/>
-                        </div>
-                        </div>
-                        <div className="editUser-block">
-                            <button className="editUser-button" id="saveButton">Save</button>
-                            <button className="editUser-button" id="cancelButton">Cancel</button>
-                        </div>
-                    </form>
-                </div>
-            {/* )}  */}
+                </h1>
+                <button className="edit-button" id="editButton" onClick={() => setEditing(true)}>Edit Name</button>
+            </div>
+            )} 
         </div>
     )
 }

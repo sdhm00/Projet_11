@@ -45,9 +45,7 @@ function SignIn() {
     return (
         <main className="main bg-dark">
             <section className="sign-in-content">
-                <i className="fa fa-user-circle sign-in-icon"></i>
                 <h1>Sign In</h1>
-                <i className="fa fa-link"></i>
                 <form id="form" onSubmit={handleSubmit}>
                     <div className="input-wrapper">
                         <label htmlFor="username">Username</label>

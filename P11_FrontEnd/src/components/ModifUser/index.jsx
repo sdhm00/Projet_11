@@ -12,8 +12,7 @@ function ModifUser() {
 
     const dispatch = useDispatch();
 
-    const handleChange = async function(event) {
-        event.preventDefault();
+    const handleChange = async function() {
 
         const token = localStorage.getItem("token");
         const usernameChanged = await modifProfile(token, newUserName);
@@ -32,7 +31,7 @@ function ModifUser() {
                     <div className="User-edit-infos">
                         <div className="User-infos">
                             <label>User name: </label>
-                            <input className="user-info-input" type="username" id="username" name="username" placeholder={dataUser.userName} onChange={(e) => {setNewUserName(e.target.value)}} />
+                            <input className="user-info-input" type="username" id="username" name="username" placeholder={dataUser.userName} onChange={(e) => {setNewUserName(e.target.placeholder)}} />
                         </div>
                         <div className="User-infos">
                             <label>First name: </label>

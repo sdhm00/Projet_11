@@ -6,13 +6,17 @@ import { modifProfile } from '../../service/api';
 function ModifUser() {
     const dataUser = useSelector((state) => state.userProfile.user)
     console.log(dataUser, "username data")
+    // const firstName = useSelector((state) => state.userProfile.user.firstName)
+    // const lastName = useSelector((state) => state.userProfile.user.lastName)
+    // const userName = useSelector((state) => state.userProfile.user.userName)
 
     const [newUserName, setNewUserName] = useState();
     const [editing, setEditing] = useState(false);
 
     const dispatch = useDispatch();
 
-    const handleChange = async function() {
+    const handleChange = async function(event) {
+        event.preventDefault();
 
         const token = localStorage.getItem("token");
         const usernameChanged = await modifProfile(token, newUserName);
@@ -31,7 +35,7 @@ function ModifUser() {
                     <div className="User-edit-infos">
                         <div className="User-infos">
                             <label>User name: </label>
-                            <input className="user-info-input" type="username" id="username" name="username" placeholder={dataUser.userName} onChange={(e) => {setNewUserName(e.target.placeholder)}} />
+                            <input className="user-info-input" type="username" id="username" name="username" placeholder={dataUser.userName} onChange={(e) => {setNewUserName(e.target.value)}} />
                         </div>
                         <div className="User-infos">
                             <label>First name: </label>

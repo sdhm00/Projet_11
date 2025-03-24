@@ -20,7 +20,13 @@ export const userSlice = createSlice({
       state.loged = false
     },
     userProfile: (state, action) => {
-      state.user = action.payload
+      state.user = action.payload.userName
+    },
+    userFirstName: (state, action) => {
+      state.user = action.payload.firstName
+    },
+    userLastName: (state, action) => {
+      state.user = action.payload.lastName
     },
   },
 })

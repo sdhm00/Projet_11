@@ -4,8 +4,14 @@ import { useState } from 'react';
 import { modifProfile } from '../../service/api';
 
 function ModifUser() {
-    const dataUser = useSelector((state) => state.userProfile.user)
+    const dataUser = useSelector((state) => state.userProfile.userName)
     console.log(dataUser, "user profile firstname data")
+
+    const dataFirstName = useSelector((state) => state.userProfile.firstName)
+    console.log(dataFirstName, "user profile firstname data")
+
+    const dataLastName = useSelector((state) => state.userProfile.lastName)
+    console.log(dataLastName, "user profile firstname data")
 
     const [newUserName, setNewUserName] = useState();
     const [editing, setEditing] = useState(false);
@@ -33,15 +39,15 @@ function ModifUser() {
                     <div className="User-edit-infos">
                         <div className="User-infos">
                             <label>User name: </label>
-                            <input className="user-info-input" type="username" id="username" name="username" placeholder={dataUser.userName} onChange={(e) => {setNewUserName(e.target.value)}} />
+                            <input className="user-info-input" type="username" id="username" name="username" placeholder={dataUser} onChange={(e) => {setNewUserName(e.target.value)}} />
                         </div>
                         <div className="User-infos">
                             <label>First name: </label>
-                            <input className="user-info-input" type="firstname" id="firstname" name="firstname" placeholder={dataUser.firstName} readOnly disabled/>
+                            <input className="user-info-input" type="firstname" id="firstname" name="firstname" placeholder={dataFirstName} readOnly disabled/>
                         </div>
                         <div className="User-infos">
                             <label>Last name: </label>
-                            <input className="user-info-input" type="lastname" id="lastname" name="lastname" placeholder={dataUser.lastName} readOnly disabled/>
+                            <input className="user-info-input" type="lastname" id="lastname" name="lastname" placeholder={dataLastName} readOnly disabled/>
                     </div>
                     </div>
                     <div className="editUser-block">
@@ -53,7 +59,7 @@ function ModifUser() {
             ) : (
             <div className="header">
                 <h1>Welcome back<br />
-                    <div className="userName"> {dataUser.firstName} {dataUser.LastName}!</div>
+                    <div className="userName"> {dataFirstName} {dataLastName}!</div>
                 </h1>
                 <button className="edit-button" id="editButton" onClick={() => setEditing(true)}>Edit Name</button>
             </div>

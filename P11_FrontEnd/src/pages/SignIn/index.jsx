@@ -2,7 +2,7 @@ import { useState, React } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getLogin, getToken } from '../../service/api';
 import { useDispatch } from 'react-redux';
-import { signIn, userFirstName, userLastName, userNameProfile, userProfile } from '../../features/userSlice';
+import { signIn, userProfile } from '../../features/userSlice';
 
 function SignIn() {
     const [email, setEmail] = useState("")
@@ -32,9 +32,6 @@ function SignIn() {
         
             if(login.status === 200) {
                 dispatch(userProfile(login.body.firstName, login.body.lastName, login.body.userName))
-                dispatch(userFirstName(login.body.firstName))
-                dispatch(userLastName(login.body.lastName))
-                dispatch(userNameProfile(login.body.userName))
                 dispatch(signIn())
 
                 console.log("user infos name", login.body, login.body.firstName, login.body.lastName,login.body.userName)

@@ -25,8 +25,7 @@ function ModifUser() {
         const usernameChanged = await modifProfile(token, newUserName);
         console.log("New username", usernameChanged);
 
-        dispatch(userNameProfile(usernameChanged.body.userName));
-        // dispatch(userProfile());
+        dispatch(userProfile(usernameChanged.body.userName));
         setEditing(false)
     }
     

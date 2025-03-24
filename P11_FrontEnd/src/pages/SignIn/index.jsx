@@ -31,7 +31,7 @@ function SignIn() {
             const login = await getLogin(token)
         
             if(login.status === 200) {
-                dispatch(userProfile(login.body.firstName, login.body.lastName, login.body.userName))
+                dispatch(userProfile(login.body))
                 dispatch(signIn())
 
                 console.log("user infos name", login.body, login.body.firstName, login.body.lastName,login.body.userName)

@@ -1,14 +1,20 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { userProfile } from '../../features/userSlice';
+import { userFirstName, userLastName, userNameProfile, userProfile } from '../../features/userSlice';
 import { useState } from 'react';
 import { modifProfile } from '../../service/api';
 
 function ModifUser() {
     const dataUser = useSelector((state) => state.userProfile.user)
-    console.log(dataUser, "username data")
-    // const firstName = useSelector((state) => state.userProfile.user.firstName)
-    // const lastName = useSelector((state) => state.userProfile.user.lastName)
-    // const userName = useSelector((state) => state.userProfile.user.userName)
+    console.log(dataUser, "user profile")
+
+    const dataUserFirstName = useSelector((state) => state.userFirstName)
+    console.log(dataUserFirstName, "user profile firstname data")
+
+    const dataUserLastName = useSelector((state) => state.userLastName)
+    console.log(dataUserLastName, "user profile lastname data")
+
+    const dataUserName = useSelector((state) => state.userNameProfile)
+    console.log(dataUserName, "username data")
 
     const [newUserName, setNewUserName] = useState();
     const [editing, setEditing] = useState(false);
@@ -22,7 +28,8 @@ function ModifUser() {
         const usernameChanged = await modifProfile(token, newUserName);
         console.log("New username", usernameChanged);
 
-        dispatch(userProfile(usernameChanged.body.userName));
+        dispatch(userNameProfile(usernameChanged.body.userName));
+        // dispatch(userProfile());
         setEditing(false)
     }
     
@@ -35,15 +42,15 @@ function ModifUser() {
                     <div className="User-edit-infos">
                         <div className="User-infos">
                             <label>User name: </label>
-                            <input className="user-info-input" type="username" id="username" name="username" placeholder={dataUser.userName} onChange={(e) => {setNewUserName(e.target.value)}} />
+                            <input className="user-info-input" type="username" id="username" name="username" placeholder={dataUserName} onChange={(e) => {setNewUserName(e.target.value)}} />
                         </div>
                         <div className="User-infos">
                             <label>First name: </label>
-                            <input className="user-info-input" type="firstname" id="firstname" name="firstname" placeholder={dataUser.firstName} readOnly disabled/>
+                            <input className="user-info-input" type="firstname" id="firstname" name="firstname" placeholder={dataUserFirstName} readOnly disabled/>
                         </div>
                         <div className="User-infos">
                             <label>Last name: </label>
-                            <input className="user-info-input" type="lastname" id="lastname" name="lastname" placeholder={dataUser.lastName} readOnly disabled/>
+                            <input className="user-info-input" type="lastname" id="lastname" name="lastname" placeholder={dataUserLastName} readOnly disabled/>
                     </div>
                     </div>
                     <div className="editUser-block">
@@ -55,7 +62,7 @@ function ModifUser() {
             ) : (
             <div className="header">
                 <h1>Welcome back<br />
-                    <div className="userName"> {dataUser.firstName} {dataUser.lastName}!</div>
+                    <div className="userName"> {dataUserFirstName} {dataUserLastName}!</div>
                 </h1>
                 <button className="edit-button" id="editButton" onClick={() => setEditing(true)}>Edit Name</button>
             </div>

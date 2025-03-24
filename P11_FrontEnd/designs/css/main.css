@@ -115,6 +115,15 @@ body {
   color: #fff;
 }
 
+.signout {
+  display: flex;
+}
+
+.fa-user-circle {
+  font-size: 20px;
+  margin: 0px 10px;
+}
+
 .User-edit-infos {
   display: block;
 }

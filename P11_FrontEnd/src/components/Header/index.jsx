@@ -1,7 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-import { signOut } from '../../features/userSlice';
+import { signOut, userProfile } from '../../features/userSlice';
+
 
 function Header() {
   const loged = useSelector(state => state.userProfile.loged)
@@ -9,6 +10,9 @@ function Header() {
   const navigate = useNavigate()
 
   const dispatch = useDispatch()
+
+  const dataUser = useSelector((state) => state.userProfile.userName)
+  console.log(dataUser, "user profile firstname data")
 
   const logedOut = function(event) {
     event.preventDefault();
@@ -18,7 +22,6 @@ function Header() {
     localStorage.removeItem("token")
 
     navigate("/")
-
   }
   return (
     <nav className="main-nav">
@@ -35,9 +38,14 @@ function Header() {
       
         <div>
           {loged ? (
-            <NavLink to="/"><div className="main-nav-item" id="signOut" onClick={logedOut}><i className="fa-solid fa-circle-user"></i>Sign Out</div></NavLink>
+            <div className='signout'>
+              {dataUser}<i className="fa fa-user-circle"></i>
+              <NavLink to="/">
+                <div className="main-nav-item" id="signOut" onClick={logedOut}>Sign Out</div>
+              </NavLink>
+            </div>
           ) : (
-            <Link to="/SignIn"><div className="main-nav-item" id="signIn"><i className="fa fa-user-circle"></i>Sign In</div></Link>
+            <Link to="/SignIn"><div className="main-nav-item" id="signIn">Sign In</div></Link>
           )}
         </div>
         
